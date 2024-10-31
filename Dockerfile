@@ -18,5 +18,4 @@ EXPOSE 3000
 
 # Command to run the application
 CMD ["node", "app.js"]
-COPY . /usr/share/nginx/html
 
