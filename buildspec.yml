@@ -1,16 +1,23 @@
 version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
+  pre_build:
     commands:
-      - npm install
+      - echo pre-build phase
   build:
     commands:
-      - echo "Starting build process"
-      - npm run build || echo "No build script defined"
+      - echo build phase
+      - npm install
   post_build:
     commands:
-      - echo "Build complete"
+      - echo post-build phase
+      - echo Build completed on `date`
+      - echo Artifacts copied to S3
+
 artifacts:
   files:
     - '**/*'
-  discard-paths: yes
+  name: scenery_app
